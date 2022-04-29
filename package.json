@@ -10,8 +10,14 @@
         "cli"
     ],
     "license": "MIT",
+    "bugs": "https://github.com/razzp/boila/issues",
+    "homepage": "https://github.com/razzp/boila#readme",
+    "repository": "github:razzp/boila",
     "main": "./bin/index.js",
     "bin": "./bin/index.js",
+    "files": [
+        "bin/**/*"
+    ],
     "scripts": {
         "format": "eslint --fix bin/**/*.js && prettier --list-different --write bin/**/*.js",
         "run": "node bin/index.js"
