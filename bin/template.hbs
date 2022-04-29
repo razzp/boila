@@ -1,0 +1,40 @@
+{{#*inline "scriptTag"}}
+<script src="{{scriptTagSrc}}"
+{{~#if scriptTagAttrs.length}}{{#each scriptTagAttrs}} {{{this}}}{{/each}}{{/if~}}
+></script>
+{{/inline~}}
+
+<!DOCTYPE html>
+<html{{#hasLang}} lang="{{lang}}"{{/hasLang}}>
+
+<head>
+    {{#if metaTags.length}}
+    {{#each metaTags}}
+    {{{this}}}
+    {{/each}}
+
+    {{/if}}
+    <title>{{title}}</title>
+    {{#if hasStyleTag}}
+
+    <link href="{{styleTagHref}}" rel="stylesheet">
+    {{/if}}
+    {{#if (shouldShowScriptTag hasScriptTag scriptTagLocation 0) }}
+
+    {{> scriptTag}}
+    {{/if}}
+</head>
+
+<body>
+    {{#if (shouldShowScriptTag hasScriptTag scriptTagLocation 1) }}
+    {{> scriptTag}}
+
+    {{/if}}
+    <h1>Thanks for using {{packageName}}!</h1>
+    {{#if (shouldShowScriptTag hasScriptTag scriptTagLocation 2) }}
+
+    {{> scriptTag}}
+    {{/if}}
+</body>
+
+</html>

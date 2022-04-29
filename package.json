@@ -1,0 +1,32 @@
+{
+    "name": "boila",
+    "author": "Robert Wells",
+    "version": "0.1.0",
+    "description": "A small CLI utility for quickly generating HTML5 boilerplates",
+    "keywords": [
+        "boilerplate",
+        "html",
+        "html5",
+        "cli"
+    ],
+    "license": "MIT",
+    "main": "./bin/index.js",
+    "bin": "./bin/index.js",
+    "scripts": {
+        "format": "eslint --fix bin/**/*.js && prettier --list-different --write bin/**/*.js",
+        "run": "node bin/index.js"
+    },
+    "engines": {
+        "node": ">=7.6.0"
+    },
+    "dependencies": {
+        "clipboardy": "^2.3.0",
+        "handlebars": "^4.7.7",
+        "inquirer": "^8.2.4"
+    },
+    "devDependencies": {
+        "eslint": "^8.14.0",
+        "eslint-config-prettier": "^8.5.0",
+        "prettier": "^2.6.2"
+    }
+}
