@@ -4,7 +4,7 @@ const inquirer = require('inquirer');
 const Handlebars = require('handlebars');
 const clipboard = require('clipboardy');
 
-const package = require('../package.json');
+const PACKAGE_NAME = 'boila';
 
 Handlebars.registerHelper({
     shouldShowScriptTag: (enabled, location, thisLocation) =>
@@ -223,7 +223,7 @@ async function run() {
     // Render the boilerplate.
     const output = render({
         ...(await inquirer.prompt(questions)),
-        packageName: package.name,
+        packageName: PACKAGE_NAME,
     });
 
     console.log('\n');
@@ -247,7 +247,7 @@ async function run() {
     }
 
     // Say thanks!
-    console.log(`Thanks for using ${package.name}!`);
+    console.log(`Thanks for using ${PACKAGE_NAME}!`);
 }
 
 run().catch((error) => {
