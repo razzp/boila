@@ -3,8 +3,10 @@ const path = require('path');
 const inquirer = require('inquirer');
 const Handlebars = require('handlebars');
 const clipboard = require('clipboardy');
+const semver = require('semver');
 
 const PACKAGE_NAME = 'boila';
+const DEFAULT_LOCALE = 'en';
 
 Handlebars.registerHelper({
     shouldShowScriptTag: (enabled, location, thisLocation) =>
@@ -154,13 +156,10 @@ const followUpQuestions = [
 ];
 
 function getLocale() {
-    try {
-        // Unsupported in Node < 13, so wrap in try/catch.
-        return Intl.DateTimeFormat().resolvedOptions().locale;
-    } catch {
-        // Return a fallback value instead.
-        return 'en';
-    }
+    // Get the current locale. This is unreliable in Node <13.
+    return semver.gte(process.version, '13.0.0')
+        ? Intl.DateTimeFormat().resolvedOptions().locale
+        : DEFAULT_LOCALE;
 }
 
 function needsFileName(input) {

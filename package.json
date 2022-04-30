@@ -28,7 +28,8 @@
     "dependencies": {
         "clipboardy": "^2.3.0",
         "handlebars": "^4.7.7",
-        "inquirer": "^8.2.4"
+        "inquirer": "^8.2.4",
+        "semver": "^7.3.7"
     },
     "devDependencies": {
         "eslint": "^8.14.0",
