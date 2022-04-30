@@ -21,7 +21,7 @@ const questions = [
         type: 'input',
         name: 'lang',
         message: 'Document language:',
-        default: 'en',
+        default: getLocale(),
         when: ({ hasLang }) => hasLang,
     },
     {
@@ -152,6 +152,16 @@ const followUpQuestions = [
         when: ({ nextAction, path }) => nextAction === 2 && needsFileName(path),
     },
 ];
+
+function getLocale() {
+    try {
+        // Unsupported in Node < 13, so wrap in try/catch.
+        return Intl.DateTimeFormat().resolvedOptions().locale;
+    } catch {
+        // Return a fallback value instead.
+        return 'en';
+    }
+}
 
 function needsFileName(input) {
     // Get the 'base' parts of the input path.
