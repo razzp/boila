@@ -2,7 +2,7 @@
     "name": "boila",
     "author": "Robert Wells",
     "version": "0.2.0",
-    "description": "A small CLI utility for quickly generating HTML5 boilerplates",
+    "description": "A small CLI utility for quickly generating HTML5 boilerplates.",
     "keywords": [
         "boilerplate",
         "html",
