@@ -1,5 +1,5 @@
-# boila
-A small CLI utility for quickly generating HTML5 boilerplates.
+# Boila
+Boila is a small CLI utility for quickly generating HTML5 boilerplates.
 
 ## Installation
 ```shell
